@@ -61,8 +61,10 @@ public class Bow : MonoBehaviour
         {
             arrowPlaceholder.SetActive(true);
 
-            float SmoothedCharge = Mathf.Lerp(Charge, 1000, ChargeTime * Time.deltaTime);
+            float SmoothedCharge = Mathf.Lerp(Charge, 1, ChargeTime * Time.deltaTime);
             Charge = SmoothedCharge;
+
+            
         }
         else if (Input.GetMouseButtonUp(0))
         {

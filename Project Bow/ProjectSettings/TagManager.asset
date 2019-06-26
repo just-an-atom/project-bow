@@ -8,6 +8,7 @@ TagManager:
   - Arrow
   - Clip
   - HitMarker
+  - Enemy
   layers:
   - Default
   - TransparentFX
