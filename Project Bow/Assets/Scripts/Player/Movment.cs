@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Movment : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public float MovementSpeed = 10;
 
     public Rigidbody rb;
@@ -12,7 +14,17 @@ public class Movment : MonoBehaviour
 
     public bool onGround = true;
 
-    void FixedUpdate()
+    public Transform PlayerView;
+
+    public float CrouchPos;
+    public CapsuleCollider PlayerHitBox;
+    
+    private void Start() {
+        GameObject gameManagerObj = GameObject.FindGameObjectWithTag("GameController");
+        gameManager = gameManagerObj.GetComponent<GameManager>();
+    }
+
+    void Update()
     {
         if (Input.GetKey(KeyCode.W))
         {
@@ -33,6 +45,20 @@ public class Movment : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right * MovementSpeed * Time.deltaTime, Space.Self);
+        }
+
+        // May need to add the crouch part to an update and the rest to FixedUpdate if phasing problomes happen
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            PlayerView.transform.Translate(new Vector3(0, -CrouchPos, 0));
+            PlayerHitBox.height = 0.5f;
+            gameManager.isCrouched = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            PlayerView.transform.Translate(new Vector3(0, CrouchPos, 0));
+            PlayerHitBox.height = 2f;
+            gameManager.isCrouched = false;
         }
 
         // Jump

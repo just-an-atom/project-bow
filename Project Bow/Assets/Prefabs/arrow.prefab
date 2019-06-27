@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &681177343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 681177344}
+  m_Layer: 8
+  m_Name: ArrowFirePoint
+  m_TagString: Clip
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &681177344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681177343}
+  m_LocalRotation: {x: 0.024071792, y: -0.7066968, z: -0.02466656, w: 0.70667654}
+  m_LocalPosition: {x: -0.22299995, y: -0.00000010244548, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 185738781118387764}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: -0.048, y: -90.00001, z: -3.9500003}
 --- !u!1 &395269167377282083
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +272,7 @@ GameObject:
   - component: {fileID: 185738781118387764}
   m_Layer: 8
   m_Name: arrow
-  m_TagString: Untagged
+  m_TagString: Clip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,7 +284,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3803494081381114919}
-  m_LocalRotation: {x: 0.011274852, y: 0.78051066, z: -0.16987295, w: 0.60151404}
+  m_LocalRotation: {x: 0.011273071, y: 0.7805106, z: -0.1698746, w: 0.60151374}
   m_LocalPosition: {x: -0.097, y: 1.007, z: 0.44946337}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
@@ -263,6 +293,7 @@ Transform:
   - {fileID: 4431253335077302624}
   - {fileID: 7296538289152263706}
   - {fileID: 2121106442034447223}
+  - {fileID: 681177344}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 16.185001, y: 103.16, z: -11.214001}

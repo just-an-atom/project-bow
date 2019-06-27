@@ -4,20 +4,31 @@ using UnityEngine;
 
 public class BowShoot : MonoBehaviour
 {
-    private Rigidbody rb;
-    public Vector3 com;
-    public Animator anim;
-    public AudioSource HitMarkerFX;
+    public GameManager gameManager;
 
+    public Vector3 com;
+
+    private Rigidbody rb;
+    private Animator anim;
+    private AudioSource HitMarkerFX;
+    public float arrowLife = 5f;
+
+    private TrailRenderer tr;
+
+    // Don't switch to Start it kinda breaks
     private void Awake() {
+        GameObject gameManagerObj = GameObject.FindGameObjectWithTag("GameController");
+        gameManager = gameManagerObj.GetComponent<GameManager>();
+
         GameObject HitMarkerFXObj = GameObject.FindGameObjectWithTag("Player");
         HitMarkerFX = HitMarkerFXObj.GetComponent<AudioSource>();
 
         GameObject animObj = GameObject.FindGameObjectWithTag("HitMarker");
         anim = animObj.GetComponent<Animator>();
 
+        tr = this.GetComponent<TrailRenderer>();
+
         rb = this.GetComponent<Rigidbody>();
-        Destroy(gameObject, 5);
     }
 
     public void AddTrust(float thrust) {
@@ -31,11 +42,16 @@ public class BowShoot : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag != "Arrow" && other.gameObject.name != "Player") {
             rb.constraints = RigidbodyConstraints.FreezeAll;
+            Destroy(gameObject, arrowLife);
         }
 
         if (other.gameObject.tag == "Enemy") {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            Destroy(gameObject, arrowLife);
             HitMarkerFX.Play();
             anim.Play("HitMarker");
+            this.transform.SetParent(other.transform, true);
+            tr.enabled = false;
         }
     }
 

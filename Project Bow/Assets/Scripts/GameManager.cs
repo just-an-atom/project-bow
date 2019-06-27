@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public bool isPaused = false;
     public bool isADS = false;
+    public bool isCrouched = false;
+    public bool canShoot = true;
 
     public GameObject PauseMenu;
 
@@ -21,10 +23,13 @@ public class GameManager : MonoBehaviour
             ConsoleObj.SetActive(isConsoleOpen);
 
             if (isConsoleOpen == true) {
+                isPaused = true;
                 Cursor.lockState = CursorLockMode.None;
+                Pause();
             } else
             {
                 Cursor.lockState = CursorLockMode.Locked;
+                Unpause();
             }
 
             Cursor.visible = isConsoleOpen;
@@ -48,6 +53,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
+        canShoot = false;
     }
 
     private void Unpause() {
@@ -55,5 +61,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
+        canShoot = true;
     }
 }

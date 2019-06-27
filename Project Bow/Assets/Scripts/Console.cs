@@ -9,12 +9,19 @@ public class Console : MonoBehaviour
     public TMP_InputField inputField;
     public Transform OutputParent;
     public GameObject OutputPrefab;
+    public Transform player;
     
+    private void Start() {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     public void Exec() {
         if (inputField.text == "exit") {
             Exit();
         } else if (inputField.text == "credits" || inputField.text == "credit") {
             Credits();
+        } if (inputField.text == "respawn") {
+            Respawn();
         } else {
             LogToConsole("Unknown command.");
         }
@@ -27,6 +34,11 @@ public class Console : MonoBehaviour
 
     private void Credits() {
         LogToConsole("Coded with ♥ by Adam Jackson");
+    }
+
+    private void Respawn() {
+        LogToConsole("Respawning");
+        player.transform.Translate(0, 3, -4, Space.World);
     }
 
     private void LogToConsole(string message) {
