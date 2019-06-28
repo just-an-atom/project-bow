@@ -12,6 +12,7 @@ public class BowShoot : MonoBehaviour
     private Animator anim;
     private AudioSource HitMarkerFX;
     public float arrowLife = 5f;
+    public GameObject BleedEffect;
 
     private TrailRenderer tr;
 
@@ -27,7 +28,6 @@ public class BowShoot : MonoBehaviour
         anim = animObj.GetComponent<Animator>();
 
         tr = this.GetComponent<TrailRenderer>();
-
         rb = this.GetComponent<Rigidbody>();
     }
 
@@ -52,6 +52,10 @@ public class BowShoot : MonoBehaviour
             anim.Play("HitMarker");
             this.transform.SetParent(other.transform, true);
             tr.enabled = false;
+
+            if(gameManager.blood == true) {
+                Instantiate(BleedEffect, this.transform);
+            }
         }
     }
 

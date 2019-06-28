@@ -9,6 +9,7 @@ TagManager:
   - Clip
   - HitMarker
   - Enemy
+  - Alert
   layers:
   - Default
   - TransparentFX

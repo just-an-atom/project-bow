@@ -24,7 +24,7 @@ public class Movment : MonoBehaviour
         gameManager = gameManagerObj.GetComponent<GameManager>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.W))
         {
@@ -48,13 +48,13 @@ public class Movment : MonoBehaviour
         }
 
         // May need to add the crouch part to an update and the rest to FixedUpdate if phasing problomes happen
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl) && gameManager.isPaused == false)
         {
             PlayerView.transform.Translate(new Vector3(0, -CrouchPos, 0));
             PlayerHitBox.height = 0.5f;
             gameManager.isCrouched = true;
         }
-        if (Input.GetKeyUp(KeyCode.LeftControl))
+        if (Input.GetKeyUp(KeyCode.LeftControl) && gameManager.isPaused == false)
         {
             PlayerView.transform.Translate(new Vector3(0, CrouchPos, 0));
             PlayerHitBox.height = 2f;

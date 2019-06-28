@@ -590,8 +590,10 @@
      <Compile Include="Assets\Scripts\Bow\Bow.cs" />
      <Compile Include="Assets\Scripts\Bow\BowShoot.cs" />
      <Compile Include="Assets\Scripts\CameraSettings.cs" />
-     <Compile Include="Assets\Scripts\Console.cs" />
+     <Compile Include="Assets\Scripts\Commands\Command.cs" />
+     <Compile Include="Assets\Scripts\Commands\Console.cs" />
      <Compile Include="Assets\Scripts\DDOL.cs" />
+     <Compile Include="Assets\Scripts\FPSDisplay.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Player\MouseMovment.cs" />
      <Compile Include="Assets\Scripts\Player\Movment.cs" />

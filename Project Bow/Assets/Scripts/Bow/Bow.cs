@@ -38,7 +38,7 @@ public class Bow : MonoBehaviour
     void Update()
     {
         // Bow Zooming
-        if (Input.GetMouseButton(1)) {
+        if (Input.GetMouseButton(1) && gameManager.isPaused == false) {
             gameManager.isADS = true;
             Crosshair.enabled = !gameManager.isADS;
 
@@ -57,7 +57,7 @@ public class Bow : MonoBehaviour
 
 
         // Charge Bow
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && gameManager.isPaused == false)
         {
             arrowPlaceholder.SetActive(true);
 
@@ -66,7 +66,7 @@ public class Bow : MonoBehaviour
 
             
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) && gameManager.isPaused == false)
         {
             arrowPlaceholder.SetActive(false);
             
