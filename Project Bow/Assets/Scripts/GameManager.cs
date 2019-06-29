@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviour
     public bool fpsOn;
     public Toggle fpsToggle;
 
+    public bool vSyncOn;
+    public Toggle vSyncToggle;
+
     private void Awake() {
         bloodToggle.isOn = blood;
         consoleToggle.isOn = consoleAllowed;
