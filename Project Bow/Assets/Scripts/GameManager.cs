@@ -39,13 +39,11 @@ public class GameManager : MonoBehaviour
     public bool vSyncOn;
     public Toggle vSyncToggle;
 
-    private void Awake() {
+    private void Start() {
         bloodToggle.isOn = blood;
         consoleToggle.isOn = consoleAllowed;
         fpsToggle.isOn = fpsOn;
-    }
 
-    private void Start() {
         FOVSlider.value = FOV;
         FOVInput.text = FOV.ToString();
 

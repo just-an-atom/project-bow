@@ -24,6 +24,8 @@ public class Console : MonoBehaviour
             command.Credit();
         } if (input == "restart") {
             command.Restart();
+        } else if (input == "respawn") {
+            command.Respawn();
         } else if(input == "ray") {
             command.Ray();
         } else if(input == "fps") {

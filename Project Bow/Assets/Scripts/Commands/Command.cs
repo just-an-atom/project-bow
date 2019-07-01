@@ -45,6 +45,11 @@ public class Command : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void Respawn() {
+        LogToConsole("Respawning...");
+        player.transform.position = new Vector3(0, 3, 0);
+    }
+
     public void Ray() {
         LogToConsole("Getting object info");
 

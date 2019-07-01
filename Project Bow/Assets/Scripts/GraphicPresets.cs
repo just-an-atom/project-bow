@@ -12,8 +12,6 @@ public class GraphicPresets : MonoBehaviour
     public int ListID;
     public string[] names;
 
-   // public PostProcessVolume ppv;
-
     private void Start() {
         GameObject gameManagerObj = GameObject.FindGameObjectWithTag("GameController");
         gameManager = gameManagerObj.GetComponent<GameManager>();

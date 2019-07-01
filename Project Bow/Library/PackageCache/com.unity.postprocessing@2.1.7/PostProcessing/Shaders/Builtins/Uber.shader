@@ -17,8 +17,8 @@ Shader "Hidden/PostProcessing/Uber"
         #pragma vertex VertUVTransform
         #pragma fragment FragUber
     
-        #include "Packages/com.unity.postprocessing/PostProcessing/Shaders/StdLib.hlsl"
-        #include "Packages/com.unity.postprocessing/PostProcessing/Shaders/Colors.hlsl"
+        #include "../StdLib.hlsl"
+        #include "../Colors.hlsl"
         #include "../Sampling.hlsl"
         #include "Distortion.hlsl"
         #include "Dithering.hlsl"

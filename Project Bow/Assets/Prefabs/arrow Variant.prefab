@@ -272,9 +272,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  com: {x: -0.024, y: 0, z: 0.182}
+  com: {x: -0.024, y: 0, z: -0.182}
   arrowLife: 5
-  BleedEffect: {fileID: 6553668539549359435, guid: 048b5c72ecb1f0e44a3ee5cf5eac1661,
+  BleedEffect: {fileID: 2827493232865444416, guid: 5d92cf544947d2341880fffe543a59fc,
     type: 3}
 --- !u!1001 &5692259316601765263
 PrefabInstance:
@@ -617,6 +617,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5271245296143978784, guid: 08586d50a84fee6479ed5c082204b26a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a848e4e16a1eb844b6dc4fa13ec0cc2, type: 2}
+    - target: {fileID: 4144634195316081578, guid: 08586d50a84fee6479ed5c082204b26a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a848e4e16a1eb844b6dc4fa13ec0cc2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08586d50a84fee6479ed5c082204b26a, type: 3}
 --- !u!1 &8806311915982756264 stripped
