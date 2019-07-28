@@ -59,6 +59,7 @@
      <Compile Include="Assets\Behavior Designer\Editor\ExternalBehaviorTreeInspector.cs" />
      <Compile Include="Assets\Behavior Designer\Editor\Object Drawers\FloatSliderDrawer.cs" />
      <Compile Include="Assets\Behavior Designer\Editor\Object Drawers\IntSliderDrawer.cs" />
+     <Compile Include="Assets\ModularUIBuilderAssets\Editor\SwitchEditor.cs" />
      <Compile Include="Assets\NavMeshComponents\Editor\NavMeshComponentsGUIUtility.cs" />
      <Compile Include="Assets\NavMeshComponents\Editor\NavMeshLinkEditor.cs" />
      <Compile Include="Assets\NavMeshComponents\Editor\NavMeshModifierEditor.cs" />
@@ -325,6 +326,9 @@
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.7f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WebGL.Extensions">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="BehaviorDesigner.Editor">
  <HintPath>C:/Users/agjac/Documents/GitHub/Project-Bow/Project Bow/Assets/Behavior Designer/Editor/BehaviorDesigner.Editor.dll</HintPath>
@@ -703,9 +707,17 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{4E1503E1-7239-3E9B-0001-BE0C0A0DFB6F}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{1E2D5093-5EAD-6AED-FCB1-C0CDA2A67B51}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
+      <Project>{7E748709-EE4C-4F27-DD59-E9A379184D83}</Project>
+      <Name>Assembly-CSharp-Editor-firstpass</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

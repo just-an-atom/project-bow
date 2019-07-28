@@ -582,10 +582,29 @@
      <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedVector3.cs" />
      <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedVector3Int.cs" />
      <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedVector4.cs" />
+     <Compile Include="Assets\Easy Save 2\ES2Init.cs" />
+     <Compile Include="Assets\Easy Save 2\Examples\Creating an Automatic Save Structure\ES2UniqueID.cs" />
+     <Compile Include="Assets\Easy Save 2\Examples\Creating an Automatic Save Structure\UniqueGameLogic.cs" />
+     <Compile Include="Assets\Easy Save 2\Examples\Creating an Automatic Save Structure\UniqueObjectManager.cs" />
+     <Compile Include="Assets\Easy Save 2\Examples\Creating an Automatic Save Structure\UniqueSaveManager.cs" />
+     <Compile Include="Assets\Easy Save 2\Examples\Save and Load Prefabs Instantiated at Runtime\PrefabManager.cs" />
+     <Compile Include="Assets\Easy Save 2\Examples\Shared Assets\Scripts\MyExampleScript.cs" />
+     <Compile Include="Assets\Easy Save 2\Examples\Upload and Download a Texture\UploadDownloadTexture.cs" />
+     <Compile Include="Assets\Easy Save 2\Types\ES2_AudioClip.cs" />
+     <Compile Include="Assets\Easy Save 2\Types\ES2_GameObject.cs" />
+     <Compile Include="Assets\Easy Save 2\Types\ES2_RawTexture2D.cs" />
+     <Compile Include="Assets\Easy Save 2\Types\ES2_Sprite.cs" />
+     <Compile Include="Assets\ModularUIBuilderAssets\Scripts\CreateSwtich.cs" />
+     <Compile Include="Assets\ModularUIBuilderAssets\Scripts\ProgressToText.cs" />
+     <Compile Include="Assets\ModularUIBuilderAssets\Scripts\ProgressToTextPercentage.cs" />
+     <Compile Include="Assets\ModularUIBuilderAssets\Scripts\SpriteTextButton.cs" />
+     <Compile Include="Assets\ModularUIBuilderAssets\Scripts\Switch.cs" />
+     <Compile Include="Assets\ModularUIBuilderAssets\Scripts\Tweening.cs" />
      <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshLink.cs" />
      <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifier.cs" />
      <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
      <Compile Include="Assets\NavMeshComponents\Scripts\NavMeshSurface.cs" />
+     <Compile Include="Assets\Scripts\AIHealth.cs" />
      <Compile Include="Assets\Scripts\Bow\Bow.cs" />
      <Compile Include="Assets\Scripts\Bow\BowShoot.cs" />
      <Compile Include="Assets\Scripts\CameraSettings.cs" />
@@ -641,6 +660,7 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\Universal Sound FX\#Game Genre References\8bit and Retro.txt" />
      <None Include="Assets\Universal Sound FX\#Game Genre References\Real Time Stategy (RTS) Sci-Fi.txt" />
+     <None Include="Assets\ModularUIBuilderAssets\_raw\photoshop\raw-assets\errors.txt" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -1265,6 +1285,12 @@
  <Reference Include="System.Xml.Serialization">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.7f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{4E1503E1-7239-3E9B-0001-BE0C0A0DFB6F}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

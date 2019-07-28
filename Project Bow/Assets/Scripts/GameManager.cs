@@ -71,6 +71,20 @@ public class GameManager : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
+
+           // ES2.Save(123, "adam.txt?encrypt=false&password=pass");
+
+           // Create a new ES2Settings with defaults, but set tag to 'mySettingsTag'.
+            ES2Settings settings = new ES2Settings("myFile.txt");
+            
+            // Enable encryption and set an encryption password.
+            settings.encrypt = false;
+            settings.encryptionPassword = "";
+            settings.tag = "mySettingsTag";
+            
+            /*  This will save 123 to a tag named 'mySettingsTag' in myFile.txt, with encryption. */
+            ES2.Save(123, "myFile.txt", settings);
+
             isPaused = !isPaused;
 
             if (isPaused) {
