@@ -20,20 +20,37 @@ public class Console : MonoBehaviour
 
         if (input == "exit" || input == "close" || input == "quit") {
             command.Exit();
+            return;
         } else if (input == "credits" || input == "credit") {
             command.Credit();
+            return;
         } if (input == "restart") {
             command.Restart();
+            return;
         } else if (input == "respawn") {
             command.Respawn();
+            return;
         } else if(input == "ray") {
             command.Ray();
+            return;
         } else if(input == "fps") {
             command.ToggleFPS();
+            return;
+        } else if(input == "save") {
+            command.Save();
+            return;
+        } else if(input == "load") {
+            command.Load();
+            return;
+        } else if(input == "debug") {
+            command.Debugger();
+            return;
         } else if(input == "") {
             return;
         } else {
             command.LogToConsole("Unknown command.");
         }
+
+        inputField.text = "";
     }
 }

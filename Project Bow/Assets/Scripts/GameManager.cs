@@ -42,10 +42,13 @@ public class GameManager : MonoBehaviour
     public int graphicsPreset = 0;
 
     private bool changeToggle;
+    private DataManager dataManager;
 
     private void Start() {
+        dataManager = this.GetComponent<DataManager>();
+
         changeToggle = false;
-        LoadUserData();
+        dataManager.LoadUserData();
         
         bloodToggle.isOn = blood;
         consoleToggle.isOn = consoleAllowed;
@@ -58,30 +61,6 @@ public class GameManager : MonoBehaviour
         SensSlider.value = MouseSens;
         SensInput.text = MouseSens.ToString();
         changeToggle = true;
-    }
-
-    public void SaveUserData() {
-        print("Saving...");
-        var settings = new ES3Settings(ES3.EncryptionType.None, "");
-
-        ES3.Save<bool>("console", consoleAllowed, "user.settings", settings);
-        ES3.Save<bool>("vsync", vSyncOn, "user.settings", settings);
-        ES3.Save<bool>("blood", blood, "user.settings", settings);
-        ES3.Save<bool>("FPS", fpsOn, "user.settings", settings);
-        ES3.Save<float>("mouseSens", MouseSens, "user.settings", settings);
-        ES3.Save<int>("graphicsPreset", graphicsPreset, "user.settings", settings);
-    }
-
-    public void LoadUserData() {
-        print("Loading...");
-        var settings = new ES3Settings(ES3.EncryptionType.None, "");
-
-        consoleAllowed = ES3.Load<bool>("console", "user.settings", false, settings);
-        vSyncOn = ES3.Load<bool>("vsync", "user.settings", true, settings);
-        blood = ES3.Load<bool>("blood", "user.settings", true, settings);
-        fpsOn = ES3.Load<bool>("FPS", "user.settings", false, settings);
-        MouseSens = ES3.Load<float>("mouseSens", "user.settings", 150, settings);
-        graphicsPreset = ES3.Load<int>("graphicsPreset", "user.settings", 0, settings);
     }
 
     private void Update() {
@@ -212,6 +191,6 @@ public class GameManager : MonoBehaviour
         ConsoleObj.SetActive(isConsoleOpen);
         SettingsMenuObj.SetActive(false);
         canShoot = true;
-        SaveUserData();
+        dataManager.SaveUserData();
     }
 }

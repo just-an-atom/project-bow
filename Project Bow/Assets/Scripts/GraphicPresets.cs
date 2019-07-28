@@ -7,7 +7,9 @@ using UnityEngine.UI;
 
 public class GraphicPresets : MonoBehaviour
 {
-    public GameManager gameManager;
+    private GameManager gameManager;
+    private DataManager dataManager;
+
     public TMP_Dropdown PresetsDropdown;
     public int ListID;
     public string[] names;
@@ -15,6 +17,7 @@ public class GraphicPresets : MonoBehaviour
     private void Start() {
         GameObject gameManagerObj = GameObject.FindGameObjectWithTag("GameController");
         gameManager = gameManagerObj.GetComponent<GameManager>();
+        dataManager = gameManagerObj.GetComponent<DataManager>();
 
         names = QualitySettings.names;
         
@@ -26,6 +29,6 @@ public class GraphicPresets : MonoBehaviour
         ListID = PresetsDropdown.value;
         QualitySettings.SetQualityLevel(ListID, true);
         gameManager.graphicsPreset = ListID;
-        gameManager.SaveUserData();
+        dataManager.SaveUserData();
     }
 }
