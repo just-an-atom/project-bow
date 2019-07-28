@@ -582,18 +582,6 @@
      <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedVector3.cs" />
      <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedVector3Int.cs" />
      <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedVector4.cs" />
-     <Compile Include="Assets\Easy Save 2\ES2Init.cs" />
-     <Compile Include="Assets\Easy Save 2\Examples\Creating an Automatic Save Structure\ES2UniqueID.cs" />
-     <Compile Include="Assets\Easy Save 2\Examples\Creating an Automatic Save Structure\UniqueGameLogic.cs" />
-     <Compile Include="Assets\Easy Save 2\Examples\Creating an Automatic Save Structure\UniqueObjectManager.cs" />
-     <Compile Include="Assets\Easy Save 2\Examples\Creating an Automatic Save Structure\UniqueSaveManager.cs" />
-     <Compile Include="Assets\Easy Save 2\Examples\Save and Load Prefabs Instantiated at Runtime\PrefabManager.cs" />
-     <Compile Include="Assets\Easy Save 2\Examples\Shared Assets\Scripts\MyExampleScript.cs" />
-     <Compile Include="Assets\Easy Save 2\Examples\Upload and Download a Texture\UploadDownloadTexture.cs" />
-     <Compile Include="Assets\Easy Save 2\Types\ES2_AudioClip.cs" />
-     <Compile Include="Assets\Easy Save 2\Types\ES2_GameObject.cs" />
-     <Compile Include="Assets\Easy Save 2\Types\ES2_RawTexture2D.cs" />
-     <Compile Include="Assets\Easy Save 2\Types\ES2_Sprite.cs" />
      <Compile Include="Assets\ModularUIBuilderAssets\Scripts\CreateSwtich.cs" />
      <Compile Include="Assets\ModularUIBuilderAssets\Scripts\ProgressToText.cs" />
      <Compile Include="Assets\ModularUIBuilderAssets\Scripts\ProgressToTextPercentage.cs" />
@@ -688,9 +676,6 @@
  <Reference Include="Unity.RenderPipelines.Core.Editor">
  <HintPath>C:/Users/agjac/Documents/GitHub/Project-Bow/Project Bow/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
- <HintPath>C:/Users/agjac/Documents/GitHub/Project-Bow/Project Bow/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
- </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Runtime">
  <HintPath>C:/Users/agjac/Documents/GitHub/Project-Bow/Project Bow/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
  </Reference>
@@ -726,9 +711,6 @@
  </Reference>
  <Reference Include="Unity.Postprocessing.Runtime">
  <HintPath>C:/Users/agjac/Documents/GitHub/Project-Bow/Project Bow/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ProBuilder.AddOns.Editor">
- <HintPath>C:/Users/agjac/Documents/GitHub/Project-Bow/Project Bow/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ShaderGraph.Editor">
  <HintPath>C:/Users/agjac/Documents/GitHub/Project-Bow/Project Bow/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>

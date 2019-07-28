@@ -17,20 +17,15 @@ public class GraphicPresets : MonoBehaviour
         gameManager = gameManagerObj.GetComponent<GameManager>();
 
         names = QualitySettings.names;
+        
+        QualitySettings.SetQualityLevel(gameManager.graphicsPreset);
+        PresetsDropdown.value = gameManager.graphicsPreset;
     }
 
     public void GetDropdownListID() {
         ListID = PresetsDropdown.value;
         QualitySettings.SetQualityLevel(ListID, true);
-    }
-
-    public void TogglevSync() {
-        gameManager.vSyncOn = !gameManager.vSyncOn;
-
-        if (gameManager.vSyncOn == true) {
-            QualitySettings.vSyncCount = 1;
-        } else {
-            QualitySettings.vSyncCount = 0;
-        }
+        gameManager.graphicsPreset = ListID;
+        gameManager.SaveUserData();
     }
 }

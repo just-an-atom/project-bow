@@ -39,17 +39,49 @@ public class GameManager : MonoBehaviour
     public bool vSyncOn;
     public Toggle vSyncToggle;
 
+    public int graphicsPreset = 0;
+
+    private bool changeToggle;
+
     private void Start() {
+        changeToggle = false;
+        LoadUserData();
+        
         bloodToggle.isOn = blood;
         consoleToggle.isOn = consoleAllowed;
         fpsToggle.isOn = fpsOn;
+        vSyncToggle.isOn = vSyncOn;
 
         FOVSlider.value = FOV;
         FOVInput.text = FOV.ToString();
 
         SensSlider.value = MouseSens;
         SensInput.text = MouseSens.ToString();
+        changeToggle = true;
+    }
 
+    public void SaveUserData() {
+        print("Saving...");
+        var settings = new ES3Settings(ES3.EncryptionType.None, "");
+
+        ES3.Save<bool>("console", consoleAllowed, "user.settings", settings);
+        ES3.Save<bool>("vsync", vSyncOn, "user.settings", settings);
+        ES3.Save<bool>("blood", blood, "user.settings", settings);
+        ES3.Save<bool>("FPS", fpsOn, "user.settings", settings);
+        ES3.Save<float>("mouseSens", MouseSens, "user.settings", settings);
+        ES3.Save<int>("graphicsPreset", graphicsPreset, "user.settings", settings);
+    }
+
+    public void LoadUserData() {
+        print("Loading...");
+        var settings = new ES3Settings(ES3.EncryptionType.None, "");
+
+        consoleAllowed = ES3.Load<bool>("console", "user.settings", false, settings);
+        vSyncOn = ES3.Load<bool>("vsync", "user.settings", true, settings);
+        blood = ES3.Load<bool>("blood", "user.settings", true, settings);
+        fpsOn = ES3.Load<bool>("FPS", "user.settings", false, settings);
+        MouseSens = ES3.Load<float>("mouseSens", "user.settings", 150, settings);
+        graphicsPreset = ES3.Load<int>("graphicsPreset", "user.settings", 0, settings);
     }
 
     private void Update() {
@@ -71,20 +103,6 @@ public class GameManager : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
-
-           // ES2.Save(123, "adam.txt?encrypt=false&password=pass");
-
-           // Create a new ES2Settings with defaults, but set tag to 'mySettingsTag'.
-            ES2Settings settings = new ES2Settings("myFile.txt");
-            
-            // Enable encryption and set an encryption password.
-            settings.encrypt = false;
-            settings.encryptionPassword = "";
-            settings.tag = "mySettingsTag";
-            
-            /*  This will save 123 to a tag named 'mySettingsTag' in myFile.txt, with encryption. */
-            ES2.Save(123, "myFile.txt", settings);
-
             isPaused = !isPaused;
 
             if (isPaused) {
@@ -97,24 +115,39 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void TogglevSyncOn() {
+        if(changeToggle == true) {
+            vSyncOn = !vSyncOn;
+
+            if (vSyncOn == true) {
+                QualitySettings.vSyncCount = 1;
+            } else {
+                QualitySettings.vSyncCount = 0;
+            }
+        }
+    }
+
     public void BloodFunc() {
-        // Inverts bool value
-        blood = !blood;
+        if(changeToggle == true) {
+            blood = !blood;
+        }
     }
 
     public void ConsoleFunc() {
-        // Inverts bool value
-        consoleAllowed = !consoleAllowed;
+        if(changeToggle == true) {
+            consoleAllowed = !consoleAllowed;
 
-        if (consoleAllowed == false) {
-            isConsoleOpen = false;
-            ConsoleObj.SetActive(isConsoleOpen);
+            if (consoleAllowed == false) {
+                isConsoleOpen = false;
+                ConsoleObj.SetActive(isConsoleOpen);
+            }
         }
     }
 
     public void FpsFunc() {
-        // Inverts bool value
-        fpsOn = !fpsOn;
+        if(changeToggle == true) {
+            fpsOn = !fpsOn;
+        }
     }
 
     // Saving space xD
@@ -179,5 +212,6 @@ public class GameManager : MonoBehaviour
         ConsoleObj.SetActive(isConsoleOpen);
         SettingsMenuObj.SetActive(false);
         canShoot = true;
+        SaveUserData();
     }
 }
