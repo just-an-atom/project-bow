@@ -10,6 +10,7 @@ TagManager:
   - HitMarker
   - Enemy
   - Alert
+  - Storage
   layers:
   - Default
   - TransparentFX

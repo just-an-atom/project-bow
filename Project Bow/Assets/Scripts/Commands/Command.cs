@@ -10,6 +10,7 @@ public class Command : MonoBehaviour
 {
     private GameManager gameManager;
     private DataManager dataManager;
+    private FPSDisplay fpsDisplay;
 
     public TMP_InputField inputField;
     public Transform OutputParent;
@@ -23,6 +24,7 @@ public class Command : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         gameManager = this.GetComponent<GameManager>();
         dataManager = this.GetComponent<DataManager>();
+        fpsDisplay = this.GetComponent<FPSDisplay>();
     }
 
     // Feedback text for console
@@ -77,6 +79,7 @@ public class Command : MonoBehaviour
         LogToConsole("Loaded last known save.");
     }
 
+    // the debugger is for well... debugging
     public void Debugger() {
         var settings = new ES3Settings(ES3.EncryptionType.None, "");
         string debugDate = System.DateTime.Now.ToString("yyyy-MM-dd hh:mm tt");
@@ -88,6 +91,8 @@ public class Command : MonoBehaviour
         ES3.Save<int>("graphicsMemorySize", SystemInfo.graphicsMemorySize, "debug/"+date+"/report.json", settings);
         ES3.Save<String>("processorType", SystemInfo.processorType, "debug/"+date+"/report.json", settings);
         ES3.Save<int>("systemMemorySize", SystemInfo.systemMemorySize, "debug/"+date+"/report.json", settings);
+        ES3.Save<float>("fps", fpsDisplay.fps, "debug/"+date+"/report.json", settings);
+        ES3.Save<int>("levelID", SceneManager.GetActiveScene().buildIndex, "debug/"+date+"/report.json", settings);
         dataManager.SaveUserDataDebug("debug/"+date+"/savefile/");
 
         StartCoroutine(snapShot());
@@ -112,8 +117,10 @@ public class Command : MonoBehaviour
         ES3.SaveImage(texture, "debug/"+date+"/screenshot.jpg", settings);
         hud.SetActive(true);
         gameManager.Pause();
-
+        
         LogToConsole("Debug folder \""+date+"\" made.");
+        gameManager.isConsoleOpen = true;
+        gameManager.ConsoleObj.SetActive(gameManager.isConsoleOpen);
     }
 
     public void ToggleFPS() {

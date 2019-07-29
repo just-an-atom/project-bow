@@ -604,8 +604,12 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GraphicPresets.cs" />
      <Compile Include="Assets\Scripts\LookAtPlayer.cs" />
+     <Compile Include="Assets\Scripts\Menu\LoadSlots.cs" />
+     <Compile Include="Assets\Scripts\Menu\MenuManager.cs" />
+     <Compile Include="Assets\Scripts\Menu\SaveSlot.cs" />
      <Compile Include="Assets\Scripts\Player\MouseMovment.cs" />
      <Compile Include="Assets\Scripts\Player\Movment.cs" />
+     <Compile Include="Assets\Storage.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

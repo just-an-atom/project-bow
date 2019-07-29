@@ -3,13 +3,14 @@ using System.Collections;
  
 public class FPSDisplay : MonoBehaviour
 {
-    private GameManager gameManager;
+  private GameManager gameManager;
 
+	public float fps;
 	float deltaTime = 0.0f;
     
-    private void Start() {
-        gameManager = this.GetComponent<GameManager>();
-    }
+	private void Start() {
+			gameManager = this.GetComponent<GameManager>();
+	}
 
 	void Update()
 	{
@@ -27,7 +28,7 @@ public class FPSDisplay : MonoBehaviour
 		style.fontSize = h * 2 / 100;
 		style.normal.textColor = new Color (0.0f, 1.0f, 0.0f, 0.9f);
 		float msec = deltaTime * 1000.0f;
-		float fps = 1.0f / deltaTime;
+		fps = 1.0f / deltaTime;
 		string text = string.Format("{0:0.} fps", fps);
 		
         if (gameManager.fpsOn == true) {
