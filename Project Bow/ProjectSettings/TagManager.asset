@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Alert
   - Storage
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX

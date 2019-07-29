@@ -19,6 +19,11 @@ public class Movment : MonoBehaviour
     public float CrouchPos;
     public CapsuleCollider PlayerHitBox;
     
+    private void Awake() {
+        Transform PlayerSpawnPOS = GameObject.FindGameObjectWithTag("PlayerSpawn").transform;
+        this.transform.position = PlayerSpawnPOS.position;
+    }
+
     private void Start() {
         GameObject gameManagerObj = GameObject.FindGameObjectWithTag("GameController");
         gameManager = gameManagerObj.GetComponent<GameManager>();

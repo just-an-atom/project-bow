@@ -106,7 +106,7 @@ public class Command : MonoBehaviour
 
         gameManager.Unpause();
         hud.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
+        //yield return new WaitForSeconds(0.5f);
         yield return frameEnd;
 
         // Take a screenshot.
@@ -117,7 +117,7 @@ public class Command : MonoBehaviour
         ES3.SaveImage(texture, "debug/"+date+"/screenshot.jpg", settings);
         hud.SetActive(true);
         gameManager.Pause();
-        
+        LogToConsole("Debug Success!");
         LogToConsole("Debug folder \""+date+"\" made.");
         gameManager.isConsoleOpen = true;
         gameManager.ConsoleObj.SetActive(gameManager.isConsoleOpen);

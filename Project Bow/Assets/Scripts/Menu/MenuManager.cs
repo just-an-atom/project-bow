@@ -13,8 +13,13 @@ public class MenuManager : MonoBehaviour
     public string saveName;
     public GameObject loadUI;
 
+    private Storage storage;
+
     void Start()
     {
+        GameObject storageObj = GameObject.FindGameObjectWithTag("Storage");
+        storage = storageObj.GetComponent<Storage>();
+
         LoadSlots();
     }
 
@@ -24,14 +29,14 @@ public class MenuManager : MonoBehaviour
 
         if (ES3.FileExists("user/slots.txt")) {
             listOfSaves = ES3.Load<List<string>>("listOfSaves", "user/slots.txt", encryptSettings);
-            //listOfSaves.Add(saveName);
             ES3.Save<List<string>>("listOfSaves", listOfSaves, "user/slots.txt", encryptSettings);
-        } else {
-            listOfSaves.Add(saveName);
-            ES3.Save<List<string>>("listOfSaves", listOfSaves, "user/slots.txt", encryptSettings);
-            ES3.Save<int>("levelID", 1, "user/"+saveName+"/data.dat", encryptSettings);
-            StartCoroutine(snapShot());
         }
+        // } else {
+        //     listOfSaves.Add(saveName);
+        //     ES3.Save<List<string>>("listOfSaves", listOfSaves, "user/slots.txt", encryptSettings);
+        //     ES3.Save<int>("levelID", 2, "user/"+saveName+"/data.dat", encryptSettings);
+        //     StartCoroutine(snapShot());
+        // }
 
         foreach (string slots in listOfSaves)
         {
@@ -68,7 +73,15 @@ public class MenuManager : MonoBehaviour
     }
 
     public void New() {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(1);
+        var encryptSettings = new ES3Settings(ES3.EncryptionType.AES, "Nan00kcj!");
+        
+        storage.user = "Adam";
+
+        listOfSaves.Add(storage.user);
+        ES3.Save<List<string>>("listOfSaves", listOfSaves, "user/slots.txt", encryptSettings);
+        ES3.Save<int>("levelID", 2, "user/"+storage.user+"/data.dat", encryptSettings);
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(2);
     }
 
     public void Exit() {
