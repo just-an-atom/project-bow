@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
     public GameObject LoadSlabItemPrefab;
     public Transform LoadSlabItemParent;
     public List<string> listOfSaves = new List<string>();
-
+    public TMP_InputField inputName;
     public string saveName;
     public GameObject loadUI;
+    public GameObject newUI;
 
     private Storage storage;
 
@@ -31,12 +33,6 @@ public class MenuManager : MonoBehaviour
             listOfSaves = ES3.Load<List<string>>("listOfSaves", "user/slots.txt", encryptSettings);
             ES3.Save<List<string>>("listOfSaves", listOfSaves, "user/slots.txt", encryptSettings);
         }
-        // } else {
-        //     listOfSaves.Add(saveName);
-        //     ES3.Save<List<string>>("listOfSaves", listOfSaves, "user/slots.txt", encryptSettings);
-        //     ES3.Save<int>("levelID", 2, "user/"+saveName+"/data.dat", encryptSettings);
-        //     StartCoroutine(snapShot());
-        // }
 
         foreach (string slots in listOfSaves)
         {
@@ -72,10 +68,14 @@ public class MenuManager : MonoBehaviour
         loadUI.SetActive(true);
     }
 
+    public void ShowNewMenu() {
+        newUI.SetActive(true);
+    }
+
     public void New() {
         var encryptSettings = new ES3Settings(ES3.EncryptionType.AES, "Nan00kcj!");
         
-        storage.user = "Adam";
+        storage.user =  inputName.text;
 
         listOfSaves.Add(storage.user);
         ES3.Save<List<string>>("listOfSaves", listOfSaves, "user/slots.txt", encryptSettings);

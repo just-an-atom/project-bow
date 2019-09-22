@@ -28,7 +28,6 @@ public class SaveSlot : MonoBehaviour
         var encryptSettings = new ES3Settings(ES3.EncryptionType.AES, "Nan00kcj!");
 
         levelID = ES3.Load<int>("levelID", "user/"+name+"/data.dat", 2, encryptSettings);
-        print(levelID);
 
         var texture = ES3.LoadImage("user/"+name+"/cover.jpg", encryptSettings);
         cover.texture = texture;

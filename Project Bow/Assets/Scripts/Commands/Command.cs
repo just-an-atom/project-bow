@@ -19,12 +19,15 @@ public class Command : MonoBehaviour
 
     private Transform player;
     private string date = System.DateTime.Now.ToString("yyyy-MM-dd-fff");
+    private string path;
 
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         gameManager = this.GetComponent<GameManager>();
         dataManager = this.GetComponent<DataManager>();
         fpsDisplay = this.GetComponent<FPSDisplay>();
+
+        path = dataManager.storage.user+"_"+date;
     }
 
     // Feedback text for console
@@ -84,16 +87,16 @@ public class Command : MonoBehaviour
         var settings = new ES3Settings(ES3.EncryptionType.None, "");
         string debugDate = System.DateTime.Now.ToString("yyyy-MM-dd hh:mm tt");
 
-        ES3.Save<Vector3>("player_position", player.position, "debug/"+date+"/report.json", settings);
-        ES3.Save<String>("Date", debugDate, "debug/"+date+"/report.json", settings);
-        ES3.Save<String>("operatingSystem", SystemInfo.operatingSystem, "debug/"+date+"/report.json", settings);
-        ES3.Save<String>("graphicsDeviceName", SystemInfo.graphicsDeviceName, "debug/"+date+"/report.json", settings);
-        ES3.Save<int>("graphicsMemorySize", SystemInfo.graphicsMemorySize, "debug/"+date+"/report.json", settings);
-        ES3.Save<String>("processorType", SystemInfo.processorType, "debug/"+date+"/report.json", settings);
-        ES3.Save<int>("systemMemorySize", SystemInfo.systemMemorySize, "debug/"+date+"/report.json", settings);
-        ES3.Save<float>("fps", fpsDisplay.fps, "debug/"+date+"/report.json", settings);
-        ES3.Save<int>("levelID", SceneManager.GetActiveScene().buildIndex, "debug/"+date+"/report.json", settings);
-        dataManager.SaveUserDataDebug("debug/"+date+"/savefile/");
+        ES3.Save<Vector3>("player_position", player.position, "debug/"+path+"/report.json", settings);
+        ES3.Save<String>("Date", debugDate, "debug/"+path+"/report.json", settings);
+        ES3.Save<String>("operatingSystem", SystemInfo.operatingSystem, "debug/"+path+"/report.json", settings);
+        ES3.Save<String>("graphicsDeviceName", SystemInfo.graphicsDeviceName, "debug/"+path+"/report.json", settings);
+        ES3.Save<int>("graphicsMemorySize", SystemInfo.graphicsMemorySize, "debug/"+path+"/report.json", settings);
+        ES3.Save<String>("processorType", SystemInfo.processorType, "debug/"+path+"/report.json", settings);
+        ES3.Save<int>("systemMemorySize", SystemInfo.systemMemorySize, "debug/"+path+"/report.json", settings);
+        ES3.Save<float>("fps", fpsDisplay.fps, "debug/"+path+"/report.json", settings);
+        ES3.Save<int>("levelID", SceneManager.GetActiveScene().buildIndex, "debug/"+path+"/report.json", settings);
+        dataManager.SaveUserDataDebug("debug/"+path+"/savefile/");
 
         StartCoroutine(snapShot());
     }
@@ -114,13 +117,18 @@ public class Command : MonoBehaviour
         texture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
         texture.Apply();
         
-        ES3.SaveImage(texture, "debug/"+date+"/screenshot.jpg", settings);
+        ES3.SaveImage(texture, "debug/"+path+"/screenshot.jpg", settings);
         hud.SetActive(true);
         gameManager.Pause();
         LogToConsole("Debug Success!");
-        LogToConsole("Debug folder \""+date+"\" made.");
+        LogToConsole("Debug folder \""+path+"\" made.");
         gameManager.isConsoleOpen = true;
         gameManager.ConsoleObj.SetActive(gameManager.isConsoleOpen);
+    }
+
+    public void MainMenu() {
+        LogToConsole("Loading Main Menu...");
+        AsyncOperation operation = SceneManager.LoadSceneAsync(1);
     }
 
     public void ToggleFPS() {

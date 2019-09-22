@@ -45,6 +45,9 @@ public class Console : MonoBehaviour
         } else if(input == "debug") {
             command.Debugger();
             return;
+        } else if(input == "main_menu") {
+            command.MainMenu();
+            return;
         } else if(input == "") {
             return;
         } else {
