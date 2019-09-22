@@ -15,13 +15,8 @@ public class MenuManager : MonoBehaviour
     public GameObject loadUI;
     public GameObject newUI;
 
-    private Storage storage;
-
     void Start()
     {
-        GameObject storageObj = GameObject.FindGameObjectWithTag("Storage");
-        storage = storageObj.GetComponent<Storage>();
-
         LoadSlots();
     }
 
@@ -31,7 +26,13 @@ public class MenuManager : MonoBehaviour
 
         if (ES3.FileExists("user/slots.txt")) {
             listOfSaves = ES3.Load<List<string>>("listOfSaves", "user/slots.txt", encryptSettings);
+            //listOfSaves.Add(saveName);
             ES3.Save<List<string>>("listOfSaves", listOfSaves, "user/slots.txt", encryptSettings);
+        } else {
+            listOfSaves.Add(saveName);
+            ES3.Save<List<string>>("listOfSaves", listOfSaves, "user/slots.txt", encryptSettings);
+            ES3.Save<int>("levelID", 1, "user/"+saveName+"/data.dat", encryptSettings);
+            StartCoroutine(snapShot());
         }
 
         foreach (string slots in listOfSaves)
@@ -73,6 +74,7 @@ public class MenuManager : MonoBehaviour
     }
 
     public void New() {
+<<<<<<< HEAD
         var encryptSettings = new ES3Settings(ES3.EncryptionType.AES, "Nan00kcj!");
         
         storage.user =  inputName.text;
@@ -82,6 +84,9 @@ public class MenuManager : MonoBehaviour
         ES3.Save<int>("levelID", 2, "user/"+storage.user+"/data.dat", encryptSettings);
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(2);
+=======
+        AsyncOperation operation = SceneManager.LoadSceneAsync(1);
+>>>>>>> parent of e0f28871... Working on pause menu bug
     }
 
     public void Exit() {

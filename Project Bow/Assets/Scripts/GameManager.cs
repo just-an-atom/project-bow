@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     
     public Toggle consoleToggle;
-    public bool consoleAllowed = false;
+    public bool consoleAllowed;
     public bool isConsoleOpen = false;
     public GameObject ConsoleObj;
     
@@ -27,28 +27,28 @@ public class GameManager : MonoBehaviour
     public bool canShoot = true;
 
     // blood and gore bool
-    public bool blood = true;
+    public bool blood;
     public Toggle bloodToggle;
 
     public GameObject PauseMenu;
     public GameObject SettingsMenuObj;
 
-    public bool fpsOn = false;
+    public bool fpsOn;
     public Toggle fpsToggle;
 
-    public bool vSyncOn = true;
+    public bool vSyncOn;
     public Toggle vSyncToggle;
 
-    public int graphicsPreset = 3;
+    public int graphicsPreset = 0;
 
     private bool changeToggle;
     private DataManager dataManager;
 
     private void Start() {
         dataManager = this.GetComponent<DataManager>();
-        dataManager.LoadUserData();
 
         changeToggle = false;
+        dataManager.LoadUserData();
         
         bloodToggle.isOn = blood;
         consoleToggle.isOn = consoleAllowed;
@@ -191,6 +191,6 @@ public class GameManager : MonoBehaviour
         ConsoleObj.SetActive(isConsoleOpen);
         SettingsMenuObj.SetActive(false);
         canShoot = true;
-       // dataManager.SaveUserData();
+        dataManager.SaveUserData();
     }
 }

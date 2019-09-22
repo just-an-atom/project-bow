@@ -334,7 +334,7 @@ MonoBehaviour:
   targetImage: {fileID: 782732432}
   targetText: {fileID: 316465418}
   hoverSprite: {fileID: 0}
-  hoverTextColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverTextColor: {r: 0.3372549, g: 0.3372549, b: 0.3372549, a: 1}
   pressedSprite: {fileID: 0}
   pressedTextColor: {r: 1, g: 1, b: 1, a: 1}
   OnClick:
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3372549, g: 0.3372549, b: 0.3372549, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -460,7 +460,6 @@ GameObject:
   - component: {fileID: 82130567}
   - component: {fileID: 82130566}
   - component: {fileID: 82130565}
-  - component: {fileID: 82130568}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -485,7 +484,7 @@ Camera:
   m_GameObject: {fileID: 82130564}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -501,22 +500,22 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 90
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 0
-  m_AllowMSAA: 0
+  m_HDR: 1
+  m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 0
+  m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &82130567
@@ -533,26 +532,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &82130568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 82130564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 0
-  m_RequiresDepthTextureOption: 0
-  m_RequiresOpaqueTextureOption: 0
-  m_RendererOverrideOption: 1
-  m_RendererData: {fileID: 0}
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
 --- !u!1 &184998583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1034,7 @@ MonoBehaviour:
   targetImage: {fileID: 585135247}
   targetText: {fileID: 708365610}
   hoverSprite: {fileID: 0}
-  hoverTextColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverTextColor: {r: 0.3372549, g: 0.3372549, b: 0.3372549, a: 1}
   pressedSprite: {fileID: 0}
   pressedTextColor: {r: 1, g: 1, b: 1, a: 1}
   OnClick:
@@ -2378,7 +2357,7 @@ MonoBehaviour:
   targetImage: {fileID: 502316511}
   targetText: {fileID: 2030268253}
   hoverSprite: {fileID: 21300000, guid: 8d9eb6b53d4c14c70b757a013e89f925, type: 3}
-  hoverTextColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverTextColor: {r: 0.3372549, g: 0.3372549, b: 0.3372549, a: 1}
   pressedSprite: {fileID: 21300000, guid: 8d9eb6b53d4c14c70b757a013e89f925, type: 3}
   pressedTextColor: {r: 1, g: 1, b: 1, a: 1}
   OnClick:
@@ -3200,7 +3179,7 @@ MonoBehaviour:
   targetImage: {fileID: 1129625744}
   targetText: {fileID: 1789815561}
   hoverSprite: {fileID: 21300000, guid: 8d9eb6b53d4c14c70b757a013e89f925, type: 3}
-  hoverTextColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverTextColor: {r: 0.3372549, g: 0.3372549, b: 0.3372549, a: 1}
   pressedSprite: {fileID: 21300000, guid: 8d9eb6b53d4c14c70b757a013e89f925, type: 3}
   pressedTextColor: {r: 1, g: 1, b: 1, a: 1}
   OnClick:
